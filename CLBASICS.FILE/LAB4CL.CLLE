@@ -1,0 +1,82 @@
+000100210224             PGM
+000101210224             DCLF       LAB4DSP
+000103210224             DCL        &MSGQ *CHAR 10
+000104210224             DCL        &MSGQLIB *CHAR 10
+000105210224
+000106210224             DCL        &CURLIB *CHAR 10
+000107210224
+000108210224             DCL        &QMAXSIGN *CHAR 6
+000109210224
+000110210224             DCL        &RTNUSRPRF *CHAR 10
+000111210224             DCL        &PRVSIGN *CHAR 13
+000112210224
+000113210224             DCL        &SYSLVL *CHAR 9
+000114210224
+000115210224             SNDRCVF
+000116210224
+000117210224             DOWHILE    (&IN03 = '0')
+000123210224
+000124210224                SELECT
+000129210224                   WHEN       (&OPTION = '1' *OR &OPTION = '01') DO
+000130210224                      RTVUSRPRF  MSGQ(&MSGQ) MSGQLIB(&MSGQLIB)
+000131210224                      CHGVAR     &MSGTXT1 ('Signed on Users message queue is ' *CAT %SST(&MSGQ +
+000132210224                                   1 8) *CAT '/' *CAT &MSGQLIB)
+000133210224                      CHGVAR     &MSGTXT2 ('CLLE Programs can report on and manage the users +
+000134210224                                   on the system')
+000135210224                   ENDDO
+000136210224                   WHEN       (&OPTION = '2' *OR &OPTION = '02') DO
+000137210224                      RTVJOBA    CURLIB(&CURLIB)
+000138210224                      CHGCURLIB  BCI433LIB
+000139210224                      CALL       COVIDRPGA
+000140210224                      CHGCURLIB  &CURLIB
+000141210224
+000142210224                      CHGVAR     &MSGTXT1 ('The students COVIDRPG RPGLE program was run')
+000143210224                      CHGVAR     &MSGTXT2 ('CLLE Programs can report on the system and manage +
+000144210224                                   system wide settings')
+000145210224                   ENDDO
+000146210224                   WHEN       (&OPTION = '3' *OR &OPTION = '03') DO
+000147210224                      RTVSYSVAL  SYSVAL(QMAXSIGN) RTNVAR(&QMAXSIGN)
+000148210224                      CHGVAR     &MSGTXT1 ('Maximum invalid signons allowed:' *BCAT &QMAXSIGN +
+000149210224                                   *BCAT '(tries)')
+000150210224                      CHGVAR     &MSGTXT2 ('CLLE Programs can report on the system and manage +
+000151210224                                   system wide settings')
+000152210224                   ENDDO
+000153210224                   WHEN       (&OPTION = '4' *OR &OPTION = '04') DO
+000154210224                      RTVUSRPRF  RTNUSRPRF(&RTNUSRPRF) PRVSIGN(&PRVSIGN)
+000155210224
+000156210224                      CHGVAR     &MSGTXT1 ('Previous sign on for user' *BCAT &RTNUSRPRF *BCAT +
+000157210224                                   'was on' *BCAT  %SST(&PRVSIGN 4 2) *CAT '/' *CAT +
+000158210224                                   %SST(&PRVSIGN 6 2) *CAT '/' *CAT %SST(&PRVSIGN 1 2) *BCAT +
+000159210224                                   %SST(&PRVSIGN 8 2) *CAT ':' *CAT %SST(&PRVSIGN 10 2) *CAT +
+000160210224                                   ':' *CAT %SST(&PRVSIGN 12 2))
+000161210224                      CHGVAR     &MSGTXT2 ('CLLE Programs can report on and manage the users +
+000162210224                                   on the system')
+000163210224                   ENDDO
+000164210224                   WHEN       (&OPTION = '5' *OR &OPTION = '05') DO
+000165210224                      RTVOBJD    OBJ(QSYS/QCMD) OBJTYPE(*PGM) SYSLVL(&SYSLVL)
+000166210224                      CHGVAR     &MSGTXT1 ('The system level of the operating system is ' +
+000167210224                                   *BCAT &SYSLVL)
+000168210224                      CHGVAR     &MSGTXT2 ('CLLE Programs can report on system information')
+000169210224                   ENDDO
+000170210224
+000171210224                   OTHERWISE  DO
+000172210224
+000173210224                      CHGVAR     &MSGTXT1 (' ')
+000174210224                      CHGVAR     &MSGTXT2 (' ')
+000175210224                      CHGVAR     &IN30 '1'
+000176210224                   ENDDO
+000177210224                ENDSELECT
+000178210224
+000179210224                IF         (&IN21 = '1') DO
+000180210224                   CALL       QUSCMDLN
+000181210224                   CHGVAR     &IN21 '0'
+000182210224                ENDDO
+000183210224
+000184210224                SNDRCVF
+000185210224                CHGVAR     &IN30 '0'
+000186210224
+000187210224             ENDDO
+000188210224
+000189210224             ENDPGM
+000190210224
+000191210224
