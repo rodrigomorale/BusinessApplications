@@ -1,0 +1,61 @@
+000001210203     A          R RISKFACTOR
+000002210203     A                                  1 71DATE
+000003210203     A                                      EDTCDE(Y)
+000004210203     A                                  1  3USER
+000005210203     A                                  1 21'C O V I D 1 9   R I S K   F A C T -
+000006210203     A                                      O R S '
+000007210203     A                                  3  3'Rodrigo Canella Garcia Morale'
+000008210203     A                                      DSPATR(RI)
+000009210203     A                                  5  4'Birth Date:'
+000010210203     A  95                              5 52'Gender Must Not Be Blank'
+000012210203     A                                  7  3'Answer the following with Y or N:'
+000013210203     A                                  9  3'Cardiovascular Disease:'
+000014210203     A  96                             10  3'Cardiovascular Must Not Be Blank'
+000016210203     A                                  9 45'Diabetes:'
+000017210203     A  97                             10 45'Diabetes Must Not Be Blank'
+000019210203     A                                 12  3'Respiratory Disease:'
+000020210203     A  98                             13  3'Respiratory Must Not Be Blank'
+000022210203     A                                 12 35'High Blood Pressure:'
+000023210203     A  99                             13 35'High Blood Pressure Must Not Be Bl-
+000024210203     A                                      ank'
+000026210203     A                                  5 34'Gender:'
+000027210203     A                                  5 45'M/F'
+000028210203     A            BIRTHDATE       L  B  5 16
+000029210203     A  60                                  DSPATR(PR)
+000030210203     A            GENDER         1   B  5 43
+000032210203     A                                      VALUES('M' 'F')
+000033210203     A  95                                  DSPATR(RI PC)
+000034210203     A  60                                  DSPATR(PR)
+000035210203     A            CVDISEASE      1   B  9 27
+000036210203     A                                      VALUES('Y' 'N')
+000037210203     A  96                                  DSPATR(RI PC)
+000038210203     A  60                                  DSPATR(PR)
+000039210203     A            DIABETES       1   B  9 56
+000041210203     A                                      VALUES('Y' 'N')
+000042210203     A  97                                  DSPATR(RI PC)
+000043210203     A  60                                  DSPATR(PR)
+000044210203     A            RSPDISEASE     1   B 12 27
+000046210203     A                                      VALUES('Y' 'N')
+000047210203     A  98                                  DSPATR(RI PC)
+000048210203     A  60                                  DSPATR(PR)
+000049210203     A            HBPRESSURE     1   B 12 56
+000051210203     A                                      VALUES('Y' 'N')
+000052210203     A  99                                  DSPATR(RI PC)
+000053210203     A  60                                  DSPATR(PR)
+000054210203     A          R RISKASSMNT                CF03(03 'Exit Program')
+000055210203     A                                      OVERLAY
+000057210210     A                                      CF01(01 'Cohort Recomendations')
+000058210203     A                                 16 27'R I S K   A S S E S S M E N T'
+000059210203     A                                 18  6'Age'
+000060210203     A                                 18 12'Fatality Rate'
+000061210203     A                                 18 32'Vaciantion Recomendation'
+000062210203     A                                 18 64'Total Queries:'
+000063210203     A            AGE            3Y 0O 20  6EDTCDE(1)
+000064210203     A            FRATE          5Y 3O 20 14EDTCDE(1)
+000065210203     A                                 20 22'%'
+000066210203     A            TOTALQ         3Y 0O 20 69EDTCDE(1)
+000067210203     A            COHORT         9   O 20 42DSPATR(RI)
+000068210203     A                                 20 34'Cohort:'
+000069210203     A                                 24  9'F1 - Cohort Information'
+000070210203     A                                 24 36'F3 - Exit'
+000100      
