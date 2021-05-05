@@ -1,0 +1,30 @@
+000001210308     A          R RECORD1
+000002210308     A                                  2 71DATE
+000003210308     A                                      EDTCDE(Y)
+000004210308     A                                  3 71TIME
+000005210308     A                                  2  3USER
+000006210308     A                                  3  3'Rodrigo Canella Garcia Morale'
+000007210308     A                                  2 23'S E N E C A  Payroll  Program Comp-
+000008210308     A                                      leted'
+000009210308     A                                  5  9'Rates:'
+000010210308     A                                  7 19'Day Hours:'
+000011210308     A                                  8 19'Afternoon Hours:'
+000012210308     A                                  9 19'Night Hours:'
+000013210308     A                                 12  9'Totals:'
+000014210308     A                                 14 19'Regular Pay:'
+000015210308     A                                 15 19'Overtime Pay:'
+000016210308     A                                 16 19'Company Payout:'
+000017210309     A            AFTHRS    R        O  8 36REFFLD(SHIFTRATES/AFTHRS +
+000018210308     A                                      SENECAPAY/SHIFTRATES)
+000019210308     A                                      EDTCDE(1)
+000020210309     A            DAYHRS    R        O  7 36REFFLD(SHIFTRATES/DAYHRS +
+000021210308     A                                      SENECAPAY/SHIFTRATES)
+000022210308     A                                      EDTCDE(1)
+000023210309     A            NIGHTHRS  R        O  9 36REFFLD(SHIFTRATES/NIGHTHRS +
+000024210308     A                                      SENECAPAY/SHIFTRATES)
+000025210308     A                                      EDTCDE(1)
+000026210309     A            TOTWKPAY       9Y 2O 16 36EDTCDE(1 $)
+000027210309     A            TOTREGPAY      9Y 2O 14 37EDTCDE(1)
+000028210309     A            TOTOVTPAY      9Y 2O 15 37EDTCDE(1)
+000029210317     A            SHIFTTYPE     30   O 11 19
+000100      
